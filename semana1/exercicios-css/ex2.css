@@ -1,0 +1,25 @@
+body {
+
+    font-weight: bold;
+}
+
+
+td {
+
+    background-color: orange;
+}
+
+#gosto-goli {
+
+    color: red;
+}
+
+#gosto-paulinha {
+
+    color: blue;
+}
+
+#gosto-miau {
+
+    color: green;
+}
