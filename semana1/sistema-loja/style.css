@@ -131,6 +131,11 @@ div.caixa {
 
 }
 
+.conteudo-controle-estoque {
+
+    height: 900px;
+}
+
 .controle-estoque {
 
     display:block;
@@ -195,6 +200,7 @@ span.footer{
 
     text-align: center;
     display: inline-block;
+    font-size: 10px;
     
 }
 
@@ -209,7 +215,7 @@ span.footer{
 .titulo-novos-produtos {
 
     text-align: center;
-    margin: 40px 0 0 0;
+    margin: 40px 0 40px 0;
     color: #1e2e7a;
 
 }
@@ -231,7 +237,7 @@ span.footer{
 .titulo-controle {
 
     text-align: center;
-    margin: 40px 0 0 0;
+    margin: 40px 0 40px 0;
     color: #1e2e7a;
 
     }
@@ -248,7 +254,6 @@ span.footer{
 
 #footer-estoque {
 
-    margin: 40px 0 0 0;
     position: relative;
     bottom: 0;
     left: 0;
@@ -257,7 +262,7 @@ span.footer{
 .titulo-funcionarios {
 
     text-align: center;
-    margin: 40px 0 0 0;
+    margin: 40px 0 40px 0;
     color: #1e2e7a;
 
 }
@@ -278,4 +283,51 @@ th {
 td,th {
 
     padding: 10px;
+}
+
+.titulo-pagina-vendas {
+
+    text-align: center;
+    color: #1e2e7a;
+    margin: 40px 0 40px 0;
+}
+
+.formulario-vendas {
+
+    text-align: center;
+}
+
+#vendedor {
+
+    width: 200px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#produto {
+    margin: 10px 0 10px 0;
+    width: 200px;
+    font-size: 14px;
+    text-align: center;
+
+}
+
+#quantidade-venda {
+
+    width: 200px;
+    font-size: 14px;
+    text-align: center;
+   
+}
+
+#botao-gerar-pedido {
+
+    margin: 20px 0 0 0;
+    background-color: #1e2e7a;
+    color: white;
+    width: 120px;
+    border-radius: 7.5px;
+    height: 40px;
+    box-shadow:none;
+
 }
