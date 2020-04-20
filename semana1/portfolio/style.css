@@ -1,3 +1,8 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+
 body {
 
     font-family: 'Open Sans';
@@ -180,7 +185,7 @@ body {
 .card {
 
     width: 1000px;
-    height: 600px;
+    height: auto;
     background-color: #EAEAEA;
     box-shadow:  1px 1px 5px rgba(0, 0, 0, 0.2);
     border-radius: 2px;
@@ -188,12 +193,20 @@ body {
     margin-right: auto;
     margin-bottom: 60px;
     margin-top: 40px;
+    padding-bottom: 20px;
 
+}
+
+.cabecalho-experiencia {
+
+    border-bottom: 1px solid #D9D9D9;
+    margin: 0 -1px;
 }
 
 .logo-experiencia {
 
     padding: 40px 40px 0 40px;
+    width:200px;
 }
 
 .empresa-experiencia {
@@ -201,7 +214,7 @@ body {
     text-decoration: none;
     color: #3B4D66;
     font-size: 35px;
-    text-align: center;
+
 }
 
 .empresa-experiencia:hover {
@@ -210,6 +223,202 @@ body {
     color: #3B4D66;
     font-size: 36px;
     text-align: center;
-    border-bottom: solid #3B4D66 ;
+    border-bottom: solid #3B4D66;
     transition: 0.3s;
+}
+
+.titulo-experiencia {
+
+    display: inline-block;
+    margin-left: 100px;
+
+}
+
+.cargo-experiencia {
+
+    display:inline-block;
+    font-size: 14px;
+    margin: 0 0 20px 60px;
+    color: #6887B3;
+}
+
+.core-empresa {
+
+    text-align: center;
+    margin: 40px;
+    color: #262626;
+}
+
+.caixa-funcoes-experiencia {
+
+    margin: 40px; 
+
+}
+
+.funcoes {
+
+    text-transform: uppercase;
+    font-size: 25px;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.2em;
+    color: #3B4D66;
+    font-weight: bold;
+
+}
+
+.lista-funcoes {
+
+    line-height: 1.5;
+    color: #262626;
+    font-size: 17px;
+
+
+}
+
+.caixa-o-que-fiz-experiencia {
+
+    margin: 40px; 
+
+}
+
+.o-que-fiz {
+
+    text-transform: uppercase;
+    font-size: 25px;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.2em;
+    color: #3B4D66;
+    font-weight: bold;
+
+
+}
+
+.lista-o-que-fiz {
+
+    line-height: 1.5;
+    color: #262626;
+    font-size: 17px;
+
+}
+.caixa-periodo-experiencia{
+
+    margin: 40px; 
+
+
+}
+.periodo {
+
+    font-size: 17px;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.2em;
+    color: #3B4D66;
+    font-weight: bold;
+
+}
+.caixa-projetos {
+
+    display:inline-block;
+    text-align: center;
+    width: auto;
+    margin: 0 100px;
+
+}
+
+.imagem-projeto {
+
+    width: 280px;
+
+}
+
+.imagem-projeto:hover {
+
+    width: 310px;
+    transition: 0.2s;
+
+}
+.titulo-projeto {
+
+    font-size: 17px;
+    margin: 20px 0 20px 0;
+    letter-spacing: 0.1em;
+    color: #3B4D66;
+    font-weight: bold;
+
+}
+
+.tecnologias-projeto {
+
+    color: #262626;
+    line-height: 1.4;
+
+
+}
+
+.ano-projeto {
+
+    font-size: 17px;
+    margin: 20px 0 20px 0;
+    letter-spacing: 0.2em;
+    color: #3B4D66;
+    font-weight: bold;
+
+
+}
+
+.caixa-habilidades {
+
+    text-align: center;
+}
+
+.titulo-habilidades {
+
+    
+    text-transform: uppercase;
+    font-size: 25px;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.2em;
+    color: #3B4D66;
+    font-weight: bold;
+
+
+
+}
+
+.lista-habilidades {
+
+    line-height: 1.7;
+    font-size: 20px;
+    margin: 40px 0;
+    font-weight: bolder;
+    
+}
+
+.explicacao-habilidade {
+
+    font-size: 14px;
+    color:#6887B3;
+    font-weight: normal;
+
+}
+
+.titulo-educacao {
+
+    font-size: 20px;
+    font-weight: bolder;
+    color: #3B4D66;
+    font-weight: bold;
+    padding: 20px
+
+}
+
+.instituicao-educacao {
+
+    padding: 20px;
+    font-weight: bold;
+
+}
+.periodo-educacao {
+
+    padding: 20px;
+    font-size: 14px;
 }
