@@ -31,6 +31,7 @@ img {
 
 div>p:first-child {
     display: inline;
+    margin: 20px 0 0 0
 }
 
 div img {
@@ -72,6 +73,7 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+    padding: 20px 0 0 0;
 }
 
 #container-de-descricao>ol {
@@ -87,6 +89,11 @@ div img {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
+}
+
+.paragrafo-home {
+
+    padding: 20px 0 0 0;
 }
 
 
