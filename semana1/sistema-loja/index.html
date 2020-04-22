@@ -1,25 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
+    <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
-    <div>
-        <h1>Bem vindo(a) ao MercadoQuarentena</h1>
-        <p> Aqui você encontra <b>tudo</b> para passar de forma mais agradavel o período de isolamento social</p>
-        <h3>Menu de navegação</h3>
-        <p> O que deseja acessar?</p>
-        <ul>
-            <li><a href="controle-estoque.html"> Controle de estoque</a></li>
-            <li><a href="adicionar-produtos.html">Adicionar novos produtos</a></li>
-            <li><a href="funcionarios.html">Funcionarios</a></li>
-        </ul>
+    <header class="header">
+        <img src="imagens/Mercado-Labenu.png" id="imagem-header">
+        <input type="text" class="barra-de-pesquisa" placeholder="Efetue aqui a sua pesquisa">
+        <button type="submit" class="botao-pesquisa">Pesquisar</button>
+        <p class="usuario-logado"> Usuário logado: Labenu Reviwer </p>
+
+    </header>
+
+    <div class="mensagem-boas-vindas">
+        <h1 class="boas-vindas">Bem vindo(a) ao MercadoQuarentena</h1>
+        <p class="sub-titulo-boas-vindas"> Aqui você encontra tudo para passar de forma mais agradavel o período de isolamento social</p>
+        
+
+    </div>
+
+        <div class="menu-navegacao">
+            <h2>Menu de navegação</h2>
+            <p class="frase-menu"> O que deseja acessar?</p>
+
+            <div class="opcoes-navegacao">
+
+                <div class="caixa">
+                <a href ="controle-estoque.html"><img id="img-controle-estoque" src="imagens/caixa.png" alt="Caixa de Estoque" ></a>
+                <a href ="controle-estoque.html" class="controle-estoque"> Controle de estoque</a>
+                 </div>
+
+                 <div class="caixa"> 
+                <a href="adicionar-produtos.html"><img id="img-adicionar-produtos" src="imagens/mais.png" alt="Símbolo de mais"></a>
+                <a href="adicionar-produtos.html" class="adicionar-produtos">Adicionar novos produtos</a></>
+                </div>
+                
+                <div class="caixa">
+                <a href="funcionarios.html"><img id="img-funcionarios" src="imagens/funcionarios.png" alt="Ícone de funcionário"></a>
+                <a href="funcionarios.html" class="funcionarios">Quadro de Funcionários</a></>
+                </div>
+            </div>
+
+
+        </div>
+
+        <footer>
+            <img src="imagens/Mercado-Labenu.png" id="logo-footer">
+            <div class="direitos">
+            <span> Todos direitos reservados</span>
+            </div>
+    
+        </footer>
 
         
         
-    </div>
+   
     
 </body>
 </html>

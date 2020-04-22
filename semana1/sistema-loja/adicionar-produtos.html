@@ -4,31 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar novos produtos</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <span><a href="index.html">Voltar para Home</a></span>
-        <span><a href="controle-estoque.html">Controle de Estoque</a></span>
-        <span><a href="funcionarios.html">Funcionarios</a></span>
+    <header class="header">
+           
+            <img src="imagens/Mercado-Labenu.png" id="imagem-header">
+            <input type="text" class="barra-de-pesquisa" placeholder="Efetue aqui a sua pesquisa">
+            <button type="submit" class="botao-pesquisa">Pesquisar</button>
+
+            <div class="opcoes-navegacao">
+
+                <span><a href="index.html">Voltar para Home  </a></span>
+                <span><a href="controle-estoque.html">| Controle de Estoque | </a></span>
+                <span><a href="funcionarios.html">Funcionarios |</a></span>
+                <span><a href="pagina-de-venda.html">Formulario de Vendas</a></span>
+                
+            </div>
+            <p class="usuario-logado"> Usuário logado: Labenu Reviwer </p>
+
+            
     </header>
+
     <div>
-        <h1>Adicionar novos produtos</h1>
-        <hr>
-        <br>
+        
+
+
+        <h1 class="titulo-novos-produtos">Adicionar novos produtos</h1>
+        
     </div>
-    <div>
+    <div class="form-adicionar-produtos">
         <form>
-            <label for="img-produto"><b>Selecione a imagem do produto:</b></label><br><br>
-            <input type="file" id="img-produto" name="img-produto" accept="image/*"><br><br>
+            <label for="img-produto" class="selecione-img"><b>Selecione a imagem do produto:</b></label><br><br>
+                <input type="file" id="img-produto" name="img-produto" accept="image/*"><br><br>
             <label for="descricao-produto"><b>Descreva o produto</b></label><br><br>
-            <input type="text" id="descricao-produto" name="descricao-produto"><br><br>
+                <input type="text" id="descricao-produto" name="descricao-produto"><br><br>
             <label for="quantidade-produto"><b>Quantidade do produto</b></label><br><br>
-            <input type="number" id="quantidade-produto" name="quantidade-produto" min="1"><br><br>
+                <input type="number" id="quantidade-produto" name="quantidade-produto" min="1"><br><br>
             <button type="submit"> Publicar Produto</button>
           
         </form>
 
     </div>
+    <footer>
+        <img src="imagens/Mercado-Labenu.png" id="logo-footer">
+        <div class="direitos">
+        <span> Todos direitos reservados</span>
+        </div>
+
+    </footer>
     
 </body>
 </html>

@@ -4,53 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Estoque</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     
-        <header>
+    <header class="header">
+        <img src="imagens/Mercado-Labenu.png" id="imagem-header">
+        <input type="text" class="barra-de-pesquisa" placeholder="Efetue aqui a sua pesquisa">
+        <button type="submit" class="botao-pesquisa">Pesquisar</button>
+        <p class="usuario-logado"> Usuário logado: Labenu Reviwer </p>
+
+        <div class="opcoes-navegacao">
             <span><a href="index.html">Voltar para Home</a></span>
             <span><a href="funcionarios.html">Funcionarios</a></span>
             <span><a href="adicionar-produtos.html">Adicionar Produtos</a></span>
-        </header>
-        
-        <div>
-        <h1>Controle de Estoque</h1>
-        <hr>
-        <br>
-        </div>
-        <table border="1">
-            <tr>
-                <th><u>Foto do Produto</u> </th>
-                <th><u> Descrição do Produto</u></th>
-                <th><u> Quantidade em estoque</u></th>
-            </tr>
-            <tr>
-                <td><img src="imagens/elasticos-funcional.jpg" style="width:100px; height:100px" alt="Elásticos para academia em casa"></td>
-                <td>Elásticos para <br>academia em casa</td>
-                <td>35 Unidades</td> 
-            </tr>
-            <tr>
-                <td><img src="imagens/cartao-netflix.png" style="width:100px; height:100px" alt="Cartão presente da Netflix"></td>
-                <td> Assinatura Netflix</td></td>
-                <td>+999 Unidades</td> 
-            </tr>
-            <tr>
-                <td><img src="imagens/laptop.jpg" style="width:100px" alt="Laptop"></td>
-                <td> Computador para codar</td></td>
-                <td>12 Unidades</td> 
-            </tr>
+            <span><a href="pagina-de-venda.html">Formulario de Vendas</a></span>
+            
 
-            <tr>
-                <td><img src="imagens/cartao-spotify.jpg" style="width:100px" alt="Cartão presente Spotify"></td>
-                <td> Assinatura Spotify</td></td>
-                <td>+999 Unidades</td> 
-            </tr>
-            <tr>
-                <td><img src="imagens/gin-tonica.png" style="width:100px;" alt="Taça de Gin Tonica"></td>
-                <td> Taça de Gin Tônica para <br>acalmar os nervos</td></td>
-                <td>17 Unidades</td> 
-            </tr>
-        </table>
+        </div>
+
+    </header>
+           
+       
+        
+        <div  class="conteudo-controle-estoque"> 
+            <h1 class="titulo-controle">Controle de Estoque</h1>
+
+            
+            <table border="1" class="tabela-estoque">
+                <tr>
+                    <th>Foto do Produto</th>
+                    <th>Descrição do Produto</th>
+                    <th>Quantidade em estoque</th>
+                </tr>
+                <tr>
+                    <td><img src="imagens/elasticos-funcional.jpg" style="width:100px; height:100px" alt="Elásticos para academia em casa"></td>
+                    <td>Elásticos para <br>academia em casa</td>
+                    <td>35 Unidades</td> 
+                </tr>
+                <tr>
+                    <td><img src="imagens/cartao-netflix.png" style="width:100px; height:100px" alt="Cartão presente da Netflix"></td>
+                    <td> Assinatura Netflix</td></td>
+                    <td>+999 Unidades</td> 
+                </tr>
+                <tr>
+                    <td><img src="imagens/laptop.jpg" style="width:100px" alt="Laptop"></td>
+                    <td> Computador para codar</td></td>
+                    <td>12 Unidades</td> 
+                </tr>
+
+                <tr>
+                    <td><img src="imagens/cartao-spotify.jpg" style="width:100px" alt="Cartão presente Spotify"></td>
+                    <td> Assinatura Spotify</td></td>
+                    <td>+999 Unidades</td> 
+                </tr>
+                <tr>
+                    <td><img src="imagens/gin-tonica.png" style="width:100px;" alt="Taça de Gin Tonica"></td>
+                    <td> Taça de Gin Tônica para acalmar os nervos</td></td>
+                    <td>17 Unidades</td> 
+                </tr>
+            </table>
+        </div>
+
+        <footer id="footer-estoque">
+            <img src="imagens/Mercado-Labenu.png" id="logo-footer">
+            <div class="direitos">
+            <span> Todos direitos reservados</span>
+            </div>
+        </footer>
     
     
 </body>

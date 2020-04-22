@@ -4,31 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funcionários</title>
+    <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <span><a href="index.html">Voltar para Home</a></span>
-        <span><a href="controle-estoque.html">Controle de Estoque</a></span>
-        <span><a href="adicionar-produtos.html">Adicionar Produtos</a></span>
+
+    <header class="header">
+        <img src="imagens/Mercado-Labenu.png" id="imagem-header">
+        <input type="text" class="barra-de-pesquisa" placeholder="Efetue aqui a sua pesquisa">
+        <button type="submit" class="botao-pesquisa">Pesquisar</button>
+        <p class="usuario-logado"> Usuário logado: Labenu Reviwer </p>
+
+        <div class="opcoes-navegacao">
+            <span><a href="index.html">Voltar para Home</a></span>
+            <span><a href="controle-estoque.html">Controle de Estoque</a></span>
+            <span><a href="adicionar-produtos.html">Adicionar Produtos</a></span>
+            <span><a href="pagina-de-venda.html">Formulario de Vendas</a></span>
+        </div>
     </header>
+
     <div>
-        <h1>Funcionários</h1>
-        <hr>
-        <br>
+        <h1 class="titulo-funcionarios">Funcionários</h1>
+
     </div>
 
-    <table border="1">
+    <table border="1" class="tabela-estoque">
         <tr>
             <td><img src="imagens/joaquim-pereira.png" style="height: 150px" alt="Joaquim Pereira"> </td>
             <td><img src="imagens/julio-castelo.png" style="height: 150px" alt="Julio Castelo"> </td>
             <td><img src="imagens/julieta-dirceu.png" style="height: 150px" alt="Julieta Dirceu"> </td>
             <td><img src="imagens/pamela-maria.png" style="height: 150px" alt="Pamela Maria"> </td>
         </tr>
-        <tr>
-            <td><b>Joaquim Pereira </b></td>
-            <td><b>Julio Castelo </b></td>
-            <td><b>Julieta Dirceu </b></td>
-            <td><b>Pamela Maria </b></td>
+        <tr class="nomes-funcionarios">
+            <td>Joaquim Pereira </td>
+            <td>Julio Castelo </td>
+            <td>Julieta Dirceu </td>
+            <td>Pamela Maria </td>
         </tr>
         <tr>
            <td>20/04/90</td>
@@ -37,5 +48,14 @@
            <td>19/06/93</td>  
         </tr>
     </table>
+
+    <footer>
+        <img src="imagens/Mercado-Labenu.png" id="logo-footer">
+        <div class="direitos">
+        <span> Todos direitos reservados</span>
+        </div>
+
+    </footer>
+
 </body>
 </html>
