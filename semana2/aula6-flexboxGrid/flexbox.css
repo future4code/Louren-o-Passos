@@ -1,0 +1,84 @@
+body {
+
+    color: white;
+    text-transform: uppercase;
+    text-align:center;
+    margin: 0;
+    vertical-align: middle;
+}
+
+
+.container-navegacao {
+
+    display: flex;
+
+}
+
+#header {
+
+    background-color: #2ECC40;
+    width: 350px;
+    height: 60px;
+}
+
+#menu {
+    background-color: #FFDC00;
+    width: 100%;
+}
+
+#content1{
+
+    width:100%;
+    background-color: #F012BE;
+    height: 500px;
+}
+
+.container-conteudo {
+
+    display:flex;
+}
+
+#content2 {
+
+    width: 800px;
+    background-color: #0074D9;
+    height: 150px;
+}
+
+#caixa-branca {
+
+    width: 420px;
+    background-color: white;
+    height: 150px
+
+}
+
+.conteudo-extra {
+
+    display: flex;   
+    
+}
+
+#image {
+
+background-color: #FF4136;
+width:320px;
+height: 75px;
+}
+
+#extra {
+
+background-color: #01FF70;
+width:320px;
+height: 75px;
+
+}
+
+#footer {
+    
+    
+width: 100%;
+background-color: #B10DC9;
+height: 60px;
+}
+
