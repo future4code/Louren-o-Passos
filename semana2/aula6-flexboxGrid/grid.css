@@ -1,0 +1,60 @@
+body {
+
+    color: white;
+    text-transform: uppercase;
+    text-align:center;
+    margin: 0;
+    vertical-align: middle;
+}
+
+
+.container-navegacao {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows:1fr
+
+}
+
+#header {
+
+    background-color: #2ECC40;
+    height: 60px;
+}
+
+#menu {
+
+    background-color: #FFDC00;
+    height: 60px;
+}
+
+#content1{
+
+    width:100%;
+    background-color: #F012BE;
+    height: 500px;
+}
+
+.container-conteudo {
+
+    display:grid;
+    grid-template-rows: 3fr 1fr;
+    grid-template-columns: 1fr;
+
+}
+
+#content2 {
+
+    width: 800px;
+    background-color: #0074D9;
+    height: 150px;
+
+
+}
+
+#caixa-branca {
+
+    background-color: #0074D9;
+    height: 150px;
+    width: auto;
+
+}
