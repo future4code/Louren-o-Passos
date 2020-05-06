@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabeBlog</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <section class="container">
+        <h1>LabeBlog</h1>
+        <label for="titulo">Digite o título do seu post: </label>
+        <input type="text" id="titulo" >
+        <label for="conteudo">Digite o conteúdo do seu post</label>
+        <textarea id="conteudo" rows="20" ></textarea>
+        <label for ="autores"> Selecione o autor do post</label>
+        <select id="autores" >
+            <option value="" selected></option> 
+            <option value="Lourenço">Lourenço</option> 
+            <option value="Caio">Caio</option>
+            <option value="Paula">Paula</option>
+            <option value="Amanda">Amanda</option>
+        </select>   
+    </section>
+    <section class="container-botao">
+        <button id="botao" onclick="criaObjeto()"> Clique aqui para enviar</button>
+    </section>
+    <div class ="container-posts">
+        <section id="posts-publicados"></section>
+    </div>
+</body>
+</html>
