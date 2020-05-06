@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+/* cabeçalho */
+
+.menu-navegacao {
+
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+a {
+    text-decoration: none;
+}
+
+.logo-header {
+
+    width: 70%;
+}
+
+.container-img {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+
+    background-color: #1f1f24;
+    height: 7vw;
+}
+
+.opcao-menu {
+
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+}
+
+.opcao-menu:hover {
+
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    transition-duration: 0.2s;
+    color: #d2c2b0;
+    font-weight: bold;
+}
+/* animação e banner */ 
+.texto-banner {
+
+    font-size: 3em;
+    font-weight: bold;
+    color: #d2c2b0;
+    border-right: 2px solid #d2c2b0;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+.typing-animation {
+    animation: blinkCursor 500ms infinite normal, typing 2s steps(30) 1s normal;
+}
+
+@keyframes blinkCursor{
+    from {
+        border-right-color: #d2c2b0;
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 14.5em;
+    }
+}
+
+.banner-grande {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-image: url(img/5086-01.jpg);
+}
+
+
+/* elementos padrão */
+
+.titulo-secao {
+
+    text-align: center;
+    color: #606060;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
+section {
+
+    text-align: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 40px 0;
+
+}
+
+
+.texto-secao {
+
+    margin: 10px 0;
+
+}
+.conteudo-secao {
+
+    width: 50%;
+    color: #1f1f24;
+    line-height: 1.5em;
+    text-align: center;
+    
+}
+/* seção serviços */
+
+.servicos-oferecidos {
+    display: flex;
+    flex-direction: row;
+}
+.img-servicos {
+
+    width: 30%;
+}
+
+/* seção nosso time */
+
+.nosso-time {
+
+    padding: 20px 0 60px 0;
+    background-color: #f5f5f5;
+}
+.container-time {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: auto;
+
+}
+
+.nosso-time {
+    display:flex;
+    justify-content: space-evenly;
+}
+.card-time{
+
+    
+    flex-direction: column;
+
+
+}
+
+
+/* rodapé */
+
+.container-logos-rodape {
+
+    background-color: #1f1f24;
+    height: 7vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo-rodape {
+
+    width: 50px;
+    height: 50px;
+}
+
+
