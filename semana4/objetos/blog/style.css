@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 18px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+#botao {
+    
+width: 400px;
+}
+
+.container-botao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+select {
+   width: 400px
+}
+#label-autores {
+    font-size: 14px;
+    margin: 0 0 0 10px;
+    font-weight: 400;
+}
+
+textarea {
+
+    width: 1064px;
+    height: 304px;
+}
+
+input {
+
+
+    width: 1064px;
+}
+
+.container-posts {
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-post {
+    background-color: lightgray;
+    border: 1px solid black;
+    border-radius: 2px;
+    height: auto;
+    width: 100vh;
+    padding: 20px;
+    margin: 10px 
+}
