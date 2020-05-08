@@ -1,5 +1,5 @@
 
-
+/*
 // Exercício 1
 // A função transforma o valor de uma moeda em dólar. 
 // Pede para o usuário digitar através do prompt e utiliza a função Number pra converter de sting para número.
@@ -98,6 +98,47 @@ if (num2 % num1 === 0) {
     console.log(num2 + " não é divísivel por " + num1)
 }
 
+// Funções
+//1)
 
+
+
+//2)
+let alerta = function(){
+    alert("Hello Labenu")
+}
+
+alerta()
+
+//
+// 3)
+let array = [6,5,2,4,9,15,34,1]
+
+array.sort(function (a,b){
+    return a-b
+})
+console.log(array);
+console.log(array[array.length-2]);
+
+// Objetos
+
+//1) Array é um conjunto de vários elementos, que não possuem necessariamente relação entre si. Já um objeto, tem informações que se relacionam com o mesmo "assunto". Uma lista de números utilizamos array, agora se são informações sobre a "mesma coisa", devem ir em um objeto. É possível criar um array de objetos.
+
+//2) 
+*/
+
+function criaRetangulo(lado1,lado2){
+
+    const retangulo = {
+    largura: lado1,
+    altura: lado2,
+    perimetro: (2 * (lado1 + lado2)),
+    area: lado1 * lado2,
+    }
+    
+}
+
+criaRetangulo(10,15);
+console.log(retangulo);
 
 
