@@ -27,19 +27,30 @@
     <section class="despesas-detalhadas">
         <h1> Despesas Detalhadas</h1>
         <select id="tipo-detalhado">
-            <option value='profissional'>Profissional</option>
-            <option value='pessoal'>Pessoal</option>
-            <option value='diversos'>Diversos</option>
+            <option value='Profissional'>Profissional</option>
+            <option value='Pessoal'>Pessoal</option>
+            <option value='Diversos'>Diversos</option>
         </select>
         <label for="valor-minimo">Insira o valor mínimo: </label>
         <input type="text" id="valor-minimo">
         <label for="valor-maximo">Insira o valor máximo: </label>
         <input type="text" id="valor-maximo">
-        <button id="filtrar" onlick="">Filtrar</button>
+        <button id="filtrar" onclick="filtraDespesa()">Filtrar</button>
         <button id="limpar-filtros" onlick="">Limpar Filtros</button>
     </section>
     <section class="extrato">
         <h1>Extrato</h1>
+        <div></div>
+            <table id="tabela-gastos">
+                <tr>
+                    <th>Valor</th>
+                    <th>Tipo de Despesa</th>
+                    <th>Descrição</th>
+                </tr>
+                
+
+            </table>
+        </div>
         <p id="valor-total">Valor Total Gasto<span id="total"> oi</span></p>
     </section>
     
