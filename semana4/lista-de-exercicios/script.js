@@ -125,7 +125,8 @@ console.log(array[array.length-2]);
 //1) Array é um conjunto de vários elementos, que não possuem necessariamente relação entre si. Já um objeto, tem informações que se relacionam com o mesmo "assunto". Uma lista de números utilizamos array, agora se são informações sobre a "mesma coisa", devem ir em um objeto. É possível criar um array de objetos.
 
 //2) 
-*/
+
+
 
 function criaRetangulo(lado1,lado2){
 
@@ -135,10 +136,50 @@ function criaRetangulo(lado1,lado2){
     perimetro: (2 * (lado1 + lado2)),
     area: lado1 * lado2,
     }
-    
+
+    console.log(retangulo);
 }
 
 criaRetangulo(10,15);
-console.log(retangulo);
 
+
+//3
+
+const filme = {
+    nome: "Interstellar",
+    ano: 2014,
+    diretor: "Christopher Nolan",
+    ator1: "Matthew McConaughey",
+    atriz1: "Anne Hathaway",
+    atriz2: "Jessica Chastain", 
+}
+
+
+console.log(`Venha assitir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.ator1} e ${filme.atriz1} e ${filme.atriz2}.`);
+
+//4
+
+    const pessoa = {
+        nome: "paulo",
+        idade: 30,
+        email: "paulo@gmail.com",
+        endereco: "Porto Alegre"
+    }
+
+function anomizarPessoa (nome,idade,email,endereco) {
+        const pessoaAnonima = {
+        nome: "Anonimo",
+        idade: pessoa.idade,
+        email: pessoa.email,
+        endereco: pessoa.endereco
+    }
+    console.log(pessoaAnonima);
+
+}
+
+anomizarPessoa("Lourenco", 26, "lo.passos93@gmail.com", "Porto Alegre");
+*/
+
+// Funções de Array
+//1)
 
