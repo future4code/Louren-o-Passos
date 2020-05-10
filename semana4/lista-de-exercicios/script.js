@@ -1,5 +1,4 @@
 
-/*
 // Exercício 1
 // A função transforma o valor de uma moeda em dólar. 
 // Pede para o usuário digitar através do prompt e utiliza a função Number pra converter de sting para número.
@@ -178,8 +177,168 @@ function anomizarPessoa (nome,idade,email,endereco) {
 }
 
 anomizarPessoa("Lourenco", 26, "lo.passos93@gmail.com", "Porto Alegre");
-*/
+
 
 // Funções de Array
 //1)
 
+const pessoas = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+//a 
+    const arrayAcimaVinte = pessoas.filter((pessoa, index,array) => {
+    return pessoa.idade >= 20
+    
+})
+console.log(arrayAcimaVinte);
+
+//b
+const arrayAbaixoVinte = pessoas.filter((pessoa, index, array) => {
+    return pessoa.idade < 20
+})
+
+console.log(arrayAbaixoVinte);
+
+//2)
+
+const numeros = [1, 2, 3, 4, 5, 6]
+
+let novoArray = numeros.map((numero) => {
+    return numero * 2
+    
+})
+console.log(novoArray)
+
+//3 
+const numeros = [1, 2, 3, 4, 5, 6]
+
+let novoArray = numeros.map((numero) => {
+    return numero * 3
+    
+    
+})
+
+let novoArrayString = novoArray.map(String)
+
+console.log(novoArrayString); 
+
+
+//4 
+const numeros = [1, 2, 3, 4, 5, 6]
+
+let novoArray = numeros.map((numero) => {
+    if ( numero % 2===0) {
+        console.log(`O ${numero} é par.`)
+    } else {
+        console.log(`O ${numero} é ímpar.`)
+    }
+      
+})
+
+
+
+//5 
+//a)
+const pessoas = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
+
+const podemIr = pessoas.filter((pessoa, index,array) => {
+    if (pessoa.altura > 1.5 && pessoa.idade > 14 & pessoa.idade < 60){
+        return pessoa
+    } else {
+        return false
+    }
+    
+})
+
+
+console.log(podemIr);
+
+//b
+const pessoas = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
+
+const naoPodemIr = pessoas.filter((pessoa, index,array) => {
+    if (pessoa.altura < 1.5 || pessoa.idade < 14 || pessoa.idade > 60){
+        return pessoa
+    } else {
+        return false
+    }
+    
+})
+console.log(naoPodemIr);
+
+
+
+//4 
+const consultas = [
+	{ nome: "João",tratamento:"Sr.", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", tratamento:"Sr.", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", tratamento:"Sra.", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", tratamento:"Sra.", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+const consultasConfirmadas = consultas.filter((consulta, index,array) => {
+    if (consulta.cancelada === true){
+        return true
+    } else {
+        return false
+    }
+    
+})
+
+    for ( i = 0; i < consultasConfirmadas.length; i++ ){
+
+        console.log(`Olá, ${consultasConfirmadas[i].tratamento} ${consultasConfirmadas[i].nome}. Estamos enviando esta mensagem para
+    lembrá-la da sua consulta no dia ${consultasConfirmadas[i].dataDaConsulta}. Por favor, acuse
+    o recebimento deste e-mail.`);
+    }
+
+
+const consultasCanceladas = consultas.filter((consulta, index, array) => {
+    if (consulta.cancelada === false){
+        return true
+    } else {
+        return false
+    }
+}) 
+
+for ( i = 0; i < consultasCanceladas.length; i++ ){
+
+    console.log(`Olá, ${consultasCanceladas[i].tratamento} ${consultasCanceladas[i].nome}. Infelizmente, sua consulta marcada
+    para o dia ${consultasCanceladas[i].dataDaConsulta} foi cancelada. Se quiser, pode entrar em 
+    contato conosco para remarcá-la`);
+}
+
+//5 
+
+const contas = [
+	{ cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+	{ cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+	{ cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+	{ cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+	{ cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
+]
+
+contas.forEach((conta, index, array) => {
+
+    conta.saldoTotal -= conta.compras.reduce((a, b) =>  a + b, 0);
+    console.log(conta.saldoTotal)
+})
