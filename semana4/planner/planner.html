@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner</title>
+    <script src="script.js" defer ></script>
+    <link rel='stylesheet' href="style.css">
+</head>
+<body>
+    <div class="titulo">
+        <h1> LabePlanner</h1>
+        <input type="text" id="input-tarefa" placeholder="Digite sua tarefa neste campo">
+        <select name="select" id="dia-semana">
+            <option value="segunda">Segunda</option> 
+            <option value="terca">Terça</option>
+            <option value="quarta">Quarta</option>
+            <option value="quinta">Quinta</option>
+            <option value="sexta">Sexta</option>
+            <option value="sabado">Sábado</option>
+            <option value="domingo">Domingo</option>
+          </select>
+          <button class="botao" onclick="publicaTarefa()">Enviar</button>
+    </div>
+    <div class="container">
+        <div class="container-dia"> 
+            <p class="dia-semana">Segunda</p>
+            <ul id="segunda">
+            </ul>
+        </div>
+        <div class="container-dia"> 
+            <p class="dia-semana">Terça</p>
+            <ul id="terca">
+            </ul>
+        </div>
+        <div class="container-dia"> 
+            <p class="dia-semana">Quarta</p>
+            <ul id="quarta">
+            </ul>
+        </div>
+        <div class="container-dia"> 
+            <p class="dia-semana">Quinta</p>
+            <ul id="quinta">
+            </ul>
+        </div>
+        <div class="container-dia"> 
+            <p class="dia-semana">Sexta</p>
+            <ul id="sexta">
+            </ul>
+        </div>
+        <div class="container-dia"> 
+            <p class="dia-semana">Sábado</p>
+            <ul>
+            </ul id="sabado">
+        </div>
+        <div class="container-dia"> 
+            <p class="dia-semana">Domingo</p>
+            <ul id="domingo">
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>
