@@ -14,7 +14,6 @@ class Post extends React.Component {
     numeroCurtidas: 0, // número de curtidas do post
     comentando: false, // se a pessoa está em processo de comentar no post, quando clica no input
     numeroComentarios: 0, // numero de comentarios do post
-    comentario: " "
 
     // Se alteramos tudo, os valores iniciais do post ja iniciam alterados
   }
