@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bfeaa69f.chunk.css",
+    "main.js": "/static/js/main.abc9591a.chunk.js",
+    "main.js.map": "/static/js/main.abc9591a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6b07746c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6b07746c.js.map",
+    "static/js/2.3e5e9db8.chunk.js": "/static/js/2.3e5e9db8.chunk.js",
+    "static/js/2.3e5e9db8.chunk.js.map": "/static/js/2.3e5e9db8.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.c3822a9e8afd057f082aa395aa49870c.js": "/precache-manifest.c3822a9e8afd057f082aa395aa49870c.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.bfeaa69f.chunk.css.map": "/static/css/main.bfeaa69f.chunk.css.map",
+    "static/js/2.3e5e9db8.chunk.js.LICENSE.txt": "/static/js/2.3e5e9db8.chunk.js.LICENSE.txt",
+    "static/media/FotoLourenco.png": "/static/media/FotoLourenco.19400874.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6b07746c.js",
+    "static/js/2.3e5e9db8.chunk.js",
+    "static/css/main.bfeaa69f.chunk.css",
+    "static/js/main.abc9591a.chunk.js"
+  ]
+}
