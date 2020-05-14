@@ -19,7 +19,7 @@ class App extends React.Component {
                 <Post
           nomeUsuario={'Pedro'}
           fotoUsuario={'https://picsum.photos/50/50?random=2'}
-          fotoPost={'https://picsum.photos/200/150?random=2'}
+          fotoPost={'https://picsum.photos/200/150?random=2'}s
         />
       </div>
       
