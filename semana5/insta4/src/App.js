@@ -5,18 +5,16 @@ import styled from "styled-components";
 
 const ContainerInputs = styled.div`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   height: 350px;
   align-items: center;
-  justify-content: center
-  `;
+  justify-content: center;
+`;
 
-  const Inputs = styled.input`
+const Inputs = styled.input`
   width: 250px;
   margin: 10px;
-  `
-
-
+`;
 
 class App extends React.Component {
   state = {
@@ -83,7 +81,7 @@ class App extends React.Component {
 
     return (
       <div>
-      <ContainerInputs>
+        <ContainerInputs>
           <Inputs
             value={this.setState.valorNovoPostNome}
             onChange={this.onChangeValorNovoPostNome}
@@ -102,7 +100,6 @@ class App extends React.Component {
           <button onClick={this.adicionaPost}> Adicionar Post</button>
         </ContainerInputs>
         <div>{listaUsuarios}</div>
-
       </div>
     );
   }
