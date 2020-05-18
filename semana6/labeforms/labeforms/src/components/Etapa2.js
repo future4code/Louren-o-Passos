@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import PerguntaFechada from './PerguntaFechada.js'
 
 const ContainerEtapa = styled.div `
 display: flex;
@@ -13,11 +14,8 @@ class Etapa2 extends React.Component {
     render() {
         return(
             <ContainerEtapa>
-                <h2>Etapa 2</h2>
-                <p>Qual o seu curso?</p>
-                <input />
-                <p>Qual a sua unidade de ensino?</p>
-                <input />
+                <PerguntaFechada pergunta={"5. Qual o seu curso?"} />
+                <PerguntaFechada pergunta={"6. Qual a sua unidade de ensino?"} />
             </ContainerEtapa>
 
         )

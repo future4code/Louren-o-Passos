@@ -26,8 +26,10 @@ class App extends React.Component {
     this.setState ({etapa: this.state.etapa + 1})
   }
 
-  render() {
 
+  render() {
+    // const avancaOuNao = this.props.pergunta === "Ensino Médio Completo" || "Ensino Médio Incompleto" ? (this.setState ({etapa: 2})) : (this.setState ({etapa: 3}));
+    
 
     const renderizaEtapa = () => {
         switch (this.state.etapa) {
@@ -43,6 +45,7 @@ class App extends React.Component {
             return <Final />
         }
     };
+    
 
     if (this.state.etapa <= 3 ) {
       return (
@@ -58,6 +61,7 @@ class App extends React.Component {
     
         )
       }
+
    
 
 

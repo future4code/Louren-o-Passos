@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
+import PerguntaAberta from './PerguntaAberta'
+import PerguntaOpcoes from './PerguntaOpcoes'
 
 const ContainerEtapa = styled.div `
 display: flex;
@@ -13,15 +15,10 @@ class Etapa3 extends React.Component {
     render() {
         return(
             <ContainerEtapa>
-                <h2>Etapa 3</h2>
-                <p>Por que você não terminou um curso de graduação?</p>
-                <input />
-                <p>Você fez algum curso complementar?</p>
-                <select>
-                    <option>Curso Técnico</option>
-                    <option>Curso de Inglês</option>
-                    <option>Não fiz curso complementar</option>
-                </select>       
+                <PerguntaAberta pergunta={"7. Por que você não terminou um curso de graduação?"} />
+                <PerguntaOpcoes pergunta={"8. Você fez algum curso complementar?"}
+                opcoes={["Nenhum", "Curso Técnico", "Curso de Inglês"]}
+                ></PerguntaOpcoes>
         
             </ContainerEtapa>
 
