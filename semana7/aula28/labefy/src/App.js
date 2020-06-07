@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import CreatePlaylist from "./components/CreatePlaylist";
-import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
+import Playlists from "./components/Playlists";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <CreatePlaylist></CreatePlaylist>
-        <AddMusicToPlaylist></AddMusicToPlaylist>
+        <Playlists></Playlists>
       </div>
     );
   }
