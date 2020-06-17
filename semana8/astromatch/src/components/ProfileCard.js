@@ -81,7 +81,6 @@ function ProfileCard(props) {
       body
     )
       .then((response) => {
-        console.log(response);
         setTogglePage(!togglePage);
       })
       .catch((error) => {
