@@ -41,7 +41,6 @@ function ProfileCard(props) {
       "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/lourenco/person"
     )
       .then((response) => {
-        console.log(response.data.profile);
         setProfile(response.data.profile);
       })
       .catch((error) => {
@@ -64,7 +63,6 @@ function ProfileCard(props) {
       body
     )
       .then((response) => {
-        console.log(response);
         setTogglePage(!togglePage);
       })
       .catch((error) => {
