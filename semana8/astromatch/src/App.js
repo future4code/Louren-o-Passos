@@ -5,24 +5,28 @@ import styled from "styled-components";
 import WelcomeScreen from "./components/WelcomeScreen";
 import ProfileCard from "./components/ProfileCard";
 import MatchesList from "./components/MatchesList";
+import { useSpring, animated } from "react-spring";
 
 const ContainerApp = styled.div`
   border: 1px solid black;
   border-radius: 25px;
-  width: 500px;
-  height: 700px;
+  width: 450px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 `;
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: lightgrey;
+  height: 50vw;
 `;
 
 function App() {
-  const [page, setPage] = useState("matches");
+  const [page, setPage] = useState("profiles");
 
   const handleProfilePage = () => {
     setPage("profiles");
