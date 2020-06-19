@@ -26,7 +26,7 @@ const Container = styled.div`
 `;
 
 function App() {
-  const [page, setPage] = useState("profiles");
+  const [page, setPage] = useState("welcome");
 
   const handleProfilePage = () => {
     setPage("profiles");
