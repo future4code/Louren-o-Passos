@@ -1,14 +1,14 @@
 import React from "react";
-import { Switch, Route, BrowserRouter, useHistory } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import ApplicationFormPage from "./components/ApplicationFormPage";
 import LoginPage from "./components/LoginPage";
 import CreateTripPage from "./components/CreateTripPage";
 import ListTripsPage from "./components/ListTripsPage";
 import TripDetailPage from "./components/TripDetalPage";
+import ManageCandidatesPage from "./components/ManageCandidatesPage";
 
 function Router(props) {
- 
   return (
     <div>
       <BrowserRouter>
@@ -16,7 +16,7 @@ function Router(props) {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route exact path="/formulariocandidato">
+          <Route exact path="/formulario-candidato">
             <ApplicationFormPage />
           </Route>
           <Route exact path="/login">
@@ -25,11 +25,14 @@ function Router(props) {
           <Route exact path="/criarviagem">
             <CreateTripPage />
           </Route>
-          <Route exact path="/listarviagens">
+          <Route exact path="/lista-viagens">
             <ListTripsPage />
           </Route>
           <Route exact path="/detalhesdaviagem/:viagemid">
             <TripDetailPage />
+          </Route>
+          <Route exact path="/gerenciar-candidatos">
+            <ManageCandidatesPage />
           </Route>
         </Switch>
       </BrowserRouter>

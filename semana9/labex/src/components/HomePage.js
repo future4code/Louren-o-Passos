@@ -31,7 +31,7 @@ function HomePage(props) {
   const history = useHistory();
 
   const goToApplicationForm = () => {
-    history.push("/formulariocandidato");
+    history.push("/formulario-candidato");
   };
 
   const goToLoginPage = () => {

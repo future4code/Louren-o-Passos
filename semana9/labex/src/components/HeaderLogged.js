@@ -22,18 +22,19 @@ const HeaderOption = styled.p`
 function Header(props) {
   const history = useHistory();
 
-  const goToLoginPage = () => {
+  const logout = () => {
+    window.localStorage.clear();
     history.push("/login");
   };
 
-  const goToApplicationForm = () => {
-    history.push("/formulario-candidato");
+  const goToManageCandidates = () => {
+    history.push("/gerenciar-candidatos");
   };
 
   return (
     <HeaderContainer>
-      <HeaderOption onClick={goToApplicationForm}>Inscrição</HeaderOption>
-      <HeaderOption onClick={goToLoginPage}>Login</HeaderOption>
+      <HeaderOption onClick={goToManageCandidates}>Gerenciar Candidatos</HeaderOption>
+      <HeaderOption onClick={logout}>Logout</HeaderOption>
     </HeaderContainer>
   );
 }
