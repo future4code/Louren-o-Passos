@@ -24,17 +24,31 @@ function Header(props) {
 
   const logout = () => {
     window.localStorage.clear();
-    history.push("/login");
+    history.push("/");
   };
 
   const goToManageCandidates = () => {
     history.push("/gerenciar-candidatos");
   };
 
+  const goToCreateTripPage = () => {
+    history.push("/criar-viagem");
+  };
+
+  const goToTripListPage = () => {
+    history.push("/lista-viagens");
+  };
+
   return (
     <HeaderContainer>
-      <HeaderOption onClick={goToManageCandidates}>Gerenciar Candidatos</HeaderOption>
+      <HeaderOption onClick={goToManageCandidates}>
+        Gerenciar Candidatos
+      </HeaderOption>
       <HeaderOption onClick={logout}>Logout</HeaderOption>
+      <HeaderOption onClick={goToCreateTripPage}>
+        Criar nova Viagem
+      </HeaderOption>
+      <HeaderOption onClick={goToTripListPage}>Lista de Viagens</HeaderOption>
     </HeaderContainer>
   );
 }

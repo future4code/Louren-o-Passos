@@ -22,13 +22,13 @@ function Router(props) {
           <Route exact path="/login">
             <LoginPage />
           </Route>
-          <Route exact path="/criarviagem">
+          <Route exact path="/criar-viagem">
             <CreateTripPage />
           </Route>
           <Route exact path="/lista-viagens">
             <ListTripsPage />
           </Route>
-          <Route exact path="/detalhesdaviagem/:viagemid">
+          <Route exact path="/detalhesdaviagem/:tripId">
             <TripDetailPage />
           </Route>
           <Route exact path="/gerenciar-candidatos">

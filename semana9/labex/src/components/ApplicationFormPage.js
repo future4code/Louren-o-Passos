@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+import useForm from "../hooks/useForm";
+import useTripList from "../hooks/useTripList";
 
 const FormContainer = styled.div`
   display: flex;
@@ -32,6 +36,11 @@ const FormSendButton = styled.button`
   margin-top: 10px;
 `;
 function ApplicationFormPage(props) {
+  const history = useHistory();
+
+  const trips = useTripList();
+  console.log(trips);
+
   return (
     <ApplicationFormPageContainer>
       <FormContainer>
@@ -48,8 +57,14 @@ function ApplicationFormPage(props) {
         <FormInput />
         <p>Viagem que estou interessado</p>
         <FormSelect>
-          <option>Marte</option>
-          <option>Júpiter</option>
+          {trips &&
+            trips.map((trip) => {
+              return (
+                <option value={}>
+                  {trip.name} - {trip.planet}
+                </option>
+              );
+            })}
         </FormSelect>
         <FormSendButton>Enviar formulário</FormSendButton>
       </FormContainer>
