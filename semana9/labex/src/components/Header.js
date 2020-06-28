@@ -4,10 +4,9 @@ import { useHistory } from "react-router-dom";
 
 const HeaderContainer = styled.div`
   display: flex;
-  flex-direction: flex-end;
+  justify-content: flex-end;
   border: 1px solid black;
   height: 5vw;
-  text-align: right;
 `;
 
 const HeaderOption = styled.p`
@@ -18,7 +17,15 @@ const HeaderOption = styled.p`
     font-weight: bold;
   }
 `;
-
+const HeaderLogoContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+`;
+const HeaderOptionsContainer = styled.div`
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+`;
 function Header(props) {
   const history = useHistory();
 
@@ -32,8 +39,12 @@ function Header(props) {
 
   return (
     <HeaderContainer>
-      <HeaderOption onClick={goToApplicationForm}>Inscrição</HeaderOption>
-      <HeaderOption onClick={goToLoginPage}>Login</HeaderOption>
+      <HeaderLogoContainer>
+      </HeaderLogoContainer>
+      <HeaderOptionsContainer>
+        <HeaderOption onClick={goToApplicationForm}>Inscrição</HeaderOption>
+        <HeaderOption onClick={goToLoginPage}>Login</HeaderOption>
+      </HeaderOptionsContainer>
     </HeaderContainer>
   );
 }

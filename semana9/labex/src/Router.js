@@ -6,7 +6,6 @@ import LoginPage from "./components/LoginPage";
 import CreateTripPage from "./components/CreateTripPage";
 import ListTripsPage from "./components/ListTripsPage";
 import TripDetailPage from "./components/TripDetalPage";
-import ManageCandidatesPage from "./components/ManageCandidatesPage";
 
 function Router(props) {
   return (
@@ -30,9 +29,6 @@ function Router(props) {
           </Route>
           <Route exact path="/detalhesdaviagem/:tripId">
             <TripDetailPage />
-          </Route>
-          <Route exact path="/gerenciar-candidatos">
-            <ManageCandidatesPage />
           </Route>
         </Switch>
       </BrowserRouter>

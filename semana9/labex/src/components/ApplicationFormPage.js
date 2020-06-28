@@ -34,39 +34,115 @@ const FormSelect = styled.select`
 const FormSendButton = styled.button`
   width: 50%;
   margin-top: 10px;
+  display: block;
+`;
+
+const FormDescription = styled.textarea`
+  width: 50%;
+  height: 20%;
 `;
 function ApplicationFormPage(props) {
   const history = useHistory();
-
   const trips = useTripList();
-  console.log(trips);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    onChange(name, value);
+  };
+  const { form, onChange } = useForm("");
+  const { getNames } = require("country-list");
+
+  const countries = getNames();
+
+  const handleApplicationFormSubmitButton = (event) => {
+    event.preventDefault();
+    const token = window.localStorage.getItem("token");
+    const body = {
+      name: form.name,
+      age: Number(form.age),
+      applicationText: form.description,
+      profession: form.profession,
+      country: form.country,
+    };
+    axios
+      .post(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/lourenco-mello/trips/${form.id}/apply`,
+        body
+      )
+      .then((response) => {
+        alert("A sua aplicação foi enviada com sucesso!");
+        history.push("/");
+      })
+      .catch((error) => {
+        alert("Aconteceu um erro durante a sua requisição" + error);
+      });
+  };
 
   return (
     <ApplicationFormPageContainer>
       <FormContainer>
-        <h1>Formulário de inscrição</h1>
-        <p>Nome Completo</p>
-        <FormInput />
-        <p>Profissão</p>
-        <FormInput />
-        <p>Idade</p>
-        <FormInput type="date" min="2002-01-01" />
-        <p>País</p>
-        <FormInput />
-        <p>Por que devo ser selecionado?</p>
-        <FormInput />
-        <p>Viagem que estou interessado</p>
-        <FormSelect>
-          {trips &&
-            trips.map((trip) => {
-              return (
-                <option value={}>
-                  {trip.name} - {trip.planet}
-                </option>
-              );
+        <form onSubmit={handleApplicationFormSubmitButton}>
+          <h1>Formulário de inscrição</h1>
+          <p>Nome Completo</p>
+          <FormInput
+            value={form.name}
+            onChange={handleInputChange}
+            type="text"
+            pattern="[\wÀ-ú ]{3,}"
+            name={"name"}
+            required
+          />
+          <p>Profissão</p>
+          <FormInput
+            value={form.profession}
+            pattern="[\wÀ-ú ]{10,}"
+            name={"profession"}
+            onChange={handleInputChange}
+            required
+          />
+          <p>Idade</p>
+          <FormInput
+            value={form.age}
+            type="number"
+            min="18"
+            name={"age"}
+            onChange={handleInputChange}
+            required
+          />
+          <p>País</p>
+          <FormSelect
+            required
+            value={form.country}
+            name={"country"}
+            onChange={handleInputChange}
+          >
+            <option value={""}></option>
+            {countries.map((country) => {
+              return <option value={country}>{country}</option>;
             })}
-        </FormSelect>
-        <FormSendButton>Enviar formulário</FormSendButton>
+            ;
+          </FormSelect>
+          <p>Por que devo ser selecionado?</p>
+          <FormDescription
+            required
+            value={form.description}
+            name={"description"}
+            onChange={handleInputChange}
+            pattern="[\wÀ-ú ]{30,}"
+          />
+          <p>Viagem que estou interessado</p>
+          <FormSelect value={form.id} name="id" onChange={handleInputChange}>
+            <option value=""></option>
+            {trips &&
+              trips.map((trip) => {
+                return (
+                  <option value={trip.id}>
+                    {trip.name} - {trip.planet}
+                  </option>
+                );
+              })}
+          </FormSelect>
+          <FormSendButton type="submit">Enviar formulário</FormSendButton>
+        </form>
       </FormContainer>
       <ImageContainer>
         <div></div>

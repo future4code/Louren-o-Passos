@@ -9,12 +9,7 @@ const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 50vw;
-  margin: 40px 0 0 20px;
-`;
-
-const ImageContainer = styled.div`
-  width: 50vw;
-  background-color: black;
+  margin: 40px 0 0 60px;
 `;
 
 const CreateTripPageContainer = styled.div`
@@ -148,7 +143,6 @@ function CreateTripPage(props) {
             <FormSendButton type="submit">Enviar formulário</FormSendButton>
           </form>
         </FormContainer>
-        <ImageContainer></ImageContainer>
       </CreateTripPageContainer>
     </div>
   );

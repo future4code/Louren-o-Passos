@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const HeaderContainer = styled.div`
   display: flex;
-  flex-direction: flex-end;
+  justify-content: flex-end;
   border: 1px solid black;
   height: 5vw;
   text-align: right;
@@ -41,14 +41,11 @@ function Header(props) {
 
   return (
     <HeaderContainer>
-      <HeaderOption onClick={goToManageCandidates}>
-        Gerenciar Candidatos
-      </HeaderOption>
-      <HeaderOption onClick={logout}>Logout</HeaderOption>
       <HeaderOption onClick={goToCreateTripPage}>
         Criar nova Viagem
       </HeaderOption>
       <HeaderOption onClick={goToTripListPage}>Lista de Viagens</HeaderOption>
+      <HeaderOption onClick={logout}>Logout</HeaderOption>
     </HeaderContainer>
   );
 }
