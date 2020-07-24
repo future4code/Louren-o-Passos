@@ -18,6 +18,7 @@ const Inputs = styled.input`
 
 class App extends React.Component {
   state = {
+    
     usuarios: [
       {
         nome: "Paulinha",
@@ -103,5 +104,5 @@ class App extends React.Component {
       </div>
     );
   }
-}
+
 export default App;
