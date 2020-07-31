@@ -28,6 +28,7 @@ const createAccount = (
         cpf,
       };
       updatedAccounts.push(user);
+
       const data = JSON.stringify(updatedAccounts, null, 2);
       fs.writeFileSync("./data.json", data);
       console.log("Conta criada com sucesso!");
