@@ -24,6 +24,8 @@ export type User = {
   name: string;
   cpf: string;
   birthday: moment.Moment; // Formato?
+  balance: number;
+  statement: StatementItem | string[] | Payment;
 };
 
 export type Payment = {
@@ -32,10 +34,23 @@ export type Payment = {
   paymentDate: moment.Moment;
 };
 
+export type Deposit = {
+  value: number;
+  description: string;
+  cpf: string;
+  name: string;
+};
+
 export type Transfer = {
   senderName: string;
   senderCPF: string;
   value: number;
   recipientName: string;
   recipientCPF: string;
+};
+
+export type StatementItem = {
+  value: number;
+  date: moment.Moment;
+  description: string;
 };

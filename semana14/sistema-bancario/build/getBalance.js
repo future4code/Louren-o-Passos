@@ -19,16 +19,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllAccounts = void 0;
 const fs = __importStar(require("fs"));
-exports.getAllAccounts = () => {
-    try {
-        const fileData = fs.readFileSync("./data.json").toString();
-        return JSON.parse(fileData);
+const name = process.argv[2];
+const cpf = process.argv[3];
+const data = JSON.parse(fs.readFileSync("./data.json").toString());
+const getBalance = (name, cpf) => {
+    const info = data.find((user) => user.cpf === cpf && user.name === name);
+    if (info !== undefined) {
+        console.log(`O saldo de ${info.name} é: R$ ${info.balance}`);
     }
-    catch (error) {
-        console.log("Erro ao ler a base de dados: " + error.message);
-        return [];
+    else {
+        console.log("Confira seus dados!");
     }
 };
-exports.getAllAccounts();
+getBalance(name, cpf);

@@ -27,29 +27,51 @@ const fs = __importStar(require("fs"));
 const name = process.argv[2];
 const cpf = process.argv[3];
 const userBirth = process.argv[4];
+const balance = Number(process.argv[5]);
 const accounts = fs.readFileSync("./data.json").toString();
 const updatedAccounts = accounts ? JSON.parse(accounts) : [];
 const birthday = moment_1.default(userBirth, "DD/MM/YYYY");
-const createAccount = (name, birthday, cpf) => {
+let doesTheCpfExist;
+const createAccount = (name, birthday, cpf, balance, statement) => {
     try {
+        const checkCpf = (cpf) => {
+            let data = JSON.parse(fs.readFileSync("./data.json").toString());
+            for (let client of data) {
+                if (client.cpf === cpf) {
+                    return (doesTheCpfExist = true);
+                }
+                return (doesTheCpfExist = false);
+            }
+            return false;
+        };
+        checkCpf(cpf);
         const diff = moment_1.default().diff(birthday, "years");
         if (diff >= 18) {
-            // const user = {
-            //   name,
-            //   birthday,
-            //   cpf,
-            // };
-            // updatedAccounts.push(user);
-            // const data = JSON.stringify(updatedAccounts, null, 2);
-            // fs.writeFileSync("./data.json", data);
-            // console.log("Conta criada com sucesso!");
+            const user = {
+                name,
+                birthday,
+                cpf,
+                balance,
+                statement,
+            };
+            if (doesTheCpfExist === false) {
+                updatedAccounts.push(user);
+                const data = JSON.stringify(updatedAccounts, null, 2);
+                fs.writeFileSync("./data.json", data);
+                console.log("Conta criada com sucesso!");
+            }
+            else {
+                console.log("CPF já existente na base, tente outro");
+                return;
+            }
         }
         else {
-            console.log("Somente permitido acima de 18 anos");
+            console.log("Somente permitida criação de conta acima de 18 anos");
+            return;
         }
     }
     catch (error) {
         console.log(error.message);
     }
 };
-createAccount(name, birthday, cpf);
+createAccount(name, birthday, cpf, balance, []);
