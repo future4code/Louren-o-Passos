@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Joana",
+    "birthday": "1993-04-20T03:00:00.000Z",
+    "cpf": "03294913099",
+    "balance": 2850,
+    "statement": [
+      {
+        "value": 50,
+        "date": "2020-08-03T00:03:44.618Z",
+        "description": "Depósito em dinheiro"
+      },
+      {
+        "value": 50,
+        "date": "2020-08-03T00:04:28.002Z",
+        "description": "Depósito em dinheiro"
+      }
+    ]
+  }
+]

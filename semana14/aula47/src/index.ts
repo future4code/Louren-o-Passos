@@ -14,35 +14,35 @@ type User = {
 
 const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labenews/";
 
-// async function getSubscribers(): Promise<any[]> {
-//   try {
-//     const response = await axios.get(`${baseUrl}subscribers/all`);
-//     return response.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+async function getSubscribers(): Promise<any[]> {
+  try {
+    const response = await axios.get(`${baseUrl}subscribers/all`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-//2a A arrow function fica dentro de uma constante e usa essa sintaxe = () => {}, além de o async ficar antes dos parênteses
+2a A arrow function fica dentro de uma constante e usa essa sintaxe = () => {}, além de o async ficar antes dos parênteses
 
-//2b)
+2b)
 
-// const getArrowSubscribers = async (): Promise<User[]> => {
-//   try {
-//     const users = await axios.get(`${baseUrl}subscribers/all`);
-//     return users.data;
-//   } catch (error) {}
+const getArrowSubscribers = async (): Promise<User[]> => {
+  try {
+    const users = await axios.get(`${baseUrl}subscribers/all`);
+    return users.data;
+  } catch (error) {}
 
-//   return []
-// };
+  return []
+};
 
-// getArrowSubscribers();
+getArrowSubscribers();
 
-//3a) Ele vai pedir que tenha um return ao final da função
+3a) Ele vai pedir que tenha um return ao final da função
 
-// 3b) Para termos o controle de estruturarmos o resultado retornado exatamente como esperamos.
+3b) Para termos o controle de estruturarmos o resultado retornado exatamente como esperamos.
 
-// 3c)
+3c)
 
 const getSubscribers = async (): Promise<User[]> => {
   const users = await axios.get(`${baseUrl}subscribers/all`);
@@ -55,51 +55,88 @@ const getSubscribers = async (): Promise<User[]> => {
   });
 };
 
-// getSubscribers();
+getSubscribers();
 
-// 4a)
+4a)
 
-// const now = Date.now();
+const now = Date.now();
 
-// const createNews = async (title: string, content: string): Promise<void> => {
-//   const body = {
-//     title,
-//     content,
-//     date: now,
-//   };
+const createNews = async (title: string, content: string): Promise<void> => {
+  const body = {
+    title,
+    content,
+    date: now,
+  };
 
-//   try {
-//     const news = await axios.put(`${baseUrl}news`, body);
-//     console.log("Sucesso!");
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+  try {
+    const news = await axios.put(`${baseUrl}news`, body);
+    console.log("Sucesso!");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// createNews("Novidade", "Começou o backend");
+createNews("Novidade", "Começou o backend");
 
-//5a) Não é aconselhavel utilizar métodos de array com promises, melhor utilizar o for
-//5b)
+5a) Não é aconselhavel utilizar métodos de array com promises, melhor utilizar o for
+5b)
 
-// const sendNotification = async (
-//   users: User[],
-//   message: string
-// ): Promise<void> => {
-//   let usersIds: string[] = [];
-//   try {
-//     for (let user of users) {
-//       axios.post(`${baseUrl}notifications/send`, {
-//         subscriberId: user.id,
-//         message,
-//       });
-//       console.log("Sucesso!");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const sendNotification = async (
+  users: User[],
+  message: string
+): Promise<void> => {
+  let usersIds: string[] = [];
+  try {
+    for (let user of users) {
+      axios.post(`${baseUrl}notifications/send`, {
+        subscriberId: user.id,
+        message,
+      });
+      console.log("Sucesso!");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// sendNotification(
+sendNotification(
+  [
+    { id: "uKuGZstWcWbf4UpneenL", name: "Mel", email: "Mel@gmail.com" },
+    {
+      id: "v2UW1apdIo5rwNs5o7UZ",
+      name: "Joãozinho",
+      email: "minijoao@joazinho.com",
+    },
+  ],
+  "Olá!"
+);
+
+6a) Junta todas as promises para o envio de uma vez só, ao invés de ir iterando e enviando diversas vezes
+6b) Ao invés de disparar o chamamento da api diversas vezes, é tudo feito de uma vez só! Imagina uma notificação começar a ser disparada as 18h e quando chegasse na letra "z" já seria 22h
+6c)
+
+const sendNotificationAll = async (
+  users: User[],
+  message: string
+): Promise<void> => {
+  let notifications: Promise<any>[] = [];
+  try {
+    for (let user of users) {
+      notifications.push(
+        axios.post(`${baseUrl}notifications/send`, {
+          subscriberId: user.id,
+          message,
+        })
+      );
+      await Promise.all(notifications);
+      console.log("Sucesso!");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// sendNotificationAll(
 //   [
 //     { id: "uKuGZstWcWbf4UpneenL", name: "Mel", email: "Mel@gmail.com" },
 //     {
@@ -111,100 +148,63 @@ const getSubscribers = async (): Promise<User[]> => {
 //   "Olá!"
 // );
 
-//6a) Junta todas as promises para o envio de uma vez só, ao invés de ir iterando e enviando diversas vezes
-//6b) Ao invés de disparar o chamamento da api diversas vezes, é tudo feito de uma vez só! Imagina uma notificação começar a ser disparada as 18h e quando chegasse na letra "z" já seria 22h
-//6c)
+//7a)
 
-// const sendNotificationAll = async (
-//   users: User[],
-//   message: string
-// ): Promise<void> => {
-//   let notifications: Promise<any>[] = [];
-//   try {
-//     for (let user of users) {
-//       notifications.push(
-//         axios.post(`${baseUrl}notifications/send`, {
-//           subscriberId: user.id,
-//           message,
-//         })
-//       );
-//       await Promise.all(notifications);
-//       console.log("Sucesso!");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const signup = async (name: string, email: string) => {
+  const body = {
+    name,
+    email,
+  };
 
-// // sendNotificationAll(
-// //   [
-// //     { id: "uKuGZstWcWbf4UpneenL", name: "Mel", email: "Mel@gmail.com" },
-// //     {
-// //       id: "v2UW1apdIo5rwNs5o7UZ",
-// //       name: "Joãozinho",
-// //       email: "minijoao@joazinho.com",
-// //     },
-// //   ],
-// //   "Olá!"
-// // );
+  try {
+    await axios.put(`${baseUrl}subscribers`, body);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// //7a)
+signup("Lourenço", "lourenco@mello.com.br");
 
-// const signup = async (name: string, email: string) => {
-//   const body = {
-//     name,
-//     email,
-//   };
+//7b)
 
-//   try {
-//     await axios.put(`${baseUrl}subscribers`, body);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+let subscribers: User[] = [];
 
-// signup("Lourenço", "lourenco@mello.com.br");
+const getSubscribers = async (): Promise<User[]> => {
+  const users = await axios.get(`${baseUrl}subscribers/all`);
+  return users.data.map((res: any) => {
+    subscribers.push(users.data);
+    return {
+      id: res.id,
+      name: res.name,
+      email: res.email,
+    };
+  });
+};
 
-// //7b)
+const now = Date.now();
 
-// let subscribers: User[] = [];
+const createNewsNotificate = async (
+  title: string,
+  content: string
+): Promise<void> => {
+  const body = {
+    title,
+    content,
+    date: now,
+  };
 
-// const getSubscribers = async (): Promise<User[]> => {
-//   const users = await axios.get(`${baseUrl}subscribers/all`);
-//   return users.data.map((res: any) => {
-//     subscribers.push(users.data);
-//     return {
-//       id: res.id,
-//       name: res.name,
-//       email: res.email,
-//     };
-//   });
-// };
+  try {
+    getSubscribers();
+    const news = await axios.put(`${baseUrl}news`, body);
+    sendNotificationAll(subscribers, "Nova notícia! Confira");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// const now = Date.now();
+createNewsNotificate("Novidade", "Começou o backend");
 
-// const createNewsNotificate = async (
-//   title: string,
-//   content: string
-// ): Promise<void> => {
-//   const body = {
-//     title,
-//     content,
-//     date: now,
-//   };
-
-//   try {
-//     getSubscribers();
-//     const news = await axios.put(`${baseUrl}news`, body);
-//     sendNotificationAll(subscribers, "Nova notícia! Confira");
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// createNewsNotificate("Novidade", "Começou o backend");
-
-//7c)
+7c)
 let subscribers: User[] = [];
 
 const getAllNotifications = async (): Promise<any> => {

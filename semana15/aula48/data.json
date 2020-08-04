@@ -1,0 +1,23 @@
+[
+   {
+      "balance": 0,
+      "transactions": [],
+      "name": "Lourenço",
+      "age": 26,
+      "cpf": "03294912019"
+   },
+   {
+      "balance": 0,
+      "transactions": [],
+      "name": "Carolina",
+      "age": 27,
+      "cpf": "03294912219"
+   },
+   {
+      "balance": 0,
+      "transactions": [],
+      "name": "Marcia",
+      "age": 60,
+      "cpf": "03284912219"
+   }
+]

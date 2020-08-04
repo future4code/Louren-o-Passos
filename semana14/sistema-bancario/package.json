@@ -1,0 +1,23 @@
+{
+  "name": "sistema-bancario",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "add-balance": "tsc && node ./build/addBalance.js",
+    "get-account-balance": "tsc && node ./build/getBalance.js",
+    "show-accounts": "tsc && node ./build/getAllAccounts.js",
+    "create-account": "tsc && node ./build/createAccount.js",
+    "build": "tsc && node ./build/index.js",
+    "pay-bill": "tsc && node ./build/payBill.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^13.7.7",
+    "moment": "^2.27.0",
+    "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
+  }
+}
