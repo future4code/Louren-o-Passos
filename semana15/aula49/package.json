@@ -1,0 +1,22 @@
+{
+  "name": "aula-back-arquitetura",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "create-seller": "ts-node ./src/Seller.ts",
+    "create-employee": "ts-node ./src/Employee.ts",
+    "create-customer": "ts-node ./src/Customer.ts",
+    "start": "ts-node ./src/User.ts",
+    "build": "tsc && node ./build/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "13.7.7",
+    "moment": "^2.27.0",
+    "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
+  }
+}
