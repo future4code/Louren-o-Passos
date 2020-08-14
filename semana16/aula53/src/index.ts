@@ -31,10 +31,29 @@ const connection = knex({
 async function fetchMovieTable(): Promise<any> {
   try {
     const result = await connection.raw(`
-        SELECT * FROM Movie;
+        SELECT * FROM Movie LIMIT 15;
         `);
     return result[0];
   } catch (error) {
+    console.log(error);
+  }
+}
+
+async function addActor(
+  id: string,
+  name: string,
+  salary: number,
+  birth_date: string,
+  gender: string
+): Promise<any> {
+  try {
+    await connection.raw(`
+    INSERT INTO Actor(id, name,salary,birth_date,gender)
+    VALUES("${id}", "${name}", ${salary}, "${birth_date}", "${gender}")
+    `);
+    console.log("Sucesso!");
+  } catch (error) {
+    throw new Error("Falha ao atualizar o banco");
     console.log(error);
   }
 }
@@ -78,7 +97,7 @@ const updateSalaryById = async (id: string, salary: number): Promise<void> => {
       .where("id", id);
     console.log("Sucesso!");
   } catch (error) {
-    console.log(error);
+    throw new Error("Falha ao atualizar o banco");
   }
 };
 
@@ -86,10 +105,10 @@ const updateSalaryById = async (id: string, salary: number): Promise<void> => {
 
 const deleteActor = async (id: string): Promise<void> => {
   try {
-    await connection("Actor").where("id", id).delete();
+    await connection("Actor").delete().where("id", id);
     console.log("Sucesso!");
   } catch (error) {
-    console.log(error);
+    throw new Error("Falha ao atualizar o banco");
   }
 };
 
@@ -132,3 +151,67 @@ app.get("/actor", async (req: Request, res: Response) => {
     });
   }
 });
+
+app.post("/actor", async (req: Request, res: Response) => {
+  try {
+    await updateSalaryById(req.body.id, req.body.salary);
+    res.status(200).send({
+      message: "Sucesso!",
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
+
+// updateSalaryById("002", 100.5);
+
+app.delete("/actor/:id", async (req: Request, res: Response) => {
+  try {
+    await deleteActor(req.params.id);
+    res.status(200).send({
+      message: "Sucesso!",
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
+
+app.post("/actor-add", async (req: Request, res: Response) => {
+  try {
+    await addActor(
+      req.body.id,
+      req.body.name,
+      req.body.salary,
+      req.body.birth_date,
+      req.body.gender
+    );
+    res.status(200).send("Ator " + req.body.name + " criado!");
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
+
+app.get("/movie/all", async (req: Request, res: Response) => {
+  try {
+    const movies = await fetchMovieTable();
+    res.status(200).send({
+      movies: movies,
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
+
+// app.put("/actor", async (req: Request, res: Response) => {});
+
+// deleteActor("010")
+// addActor("010", "Lourenço", 2000, "1993-12-25", "male");

@@ -69,5 +69,36 @@ c) const getSalaryAverage = async (gender: string): Promise<void> => {
 a) Porque o id que vai ser utilizado está vindo como path param no request
 b) Caso seja bem sucedida a requisição, ele envia os dados
 c)
+app.get("/actor", async (req: Request, res: Response) => {
+  try {
+    const count = await actorCountByGender(req.query.gender as string);
+    res.status(200).send({
+      quantity: count,
+    });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
 
+### Exercício 4
+
+a) app.put("/actor", async (req: Request, res: Response) => {
+  try {
+    await createActor(
+      req.body.id,
+      req.body.name,
+      req.body.salary,
+      new Date(req.body.dateOfBirth),
+      req.body.salary
+    );
+
+    res.status(200).send();
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
 
