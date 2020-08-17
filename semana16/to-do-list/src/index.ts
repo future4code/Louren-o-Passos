@@ -116,32 +116,57 @@ app.get("/user/:id", async (req: Request, res: Response) => {
 // }
 
 async function editUser(
-  id: string
-  // name: string,
-  // nickname: string,
-  // email: string
+  id: string,
+  name?: string,
+  nickname?: string,
+  email?: string
 ): Promise<any> {
   if (id) {
     try {
-      const databaseName = await connection.raw(`
+      let databaseName;
+
+      databaseName = await connection.raw(`
       SELECT name FROM ToDoListUser WHERE id="${id}"
       `);
-      console.log(databaseName[0][0].name);
-      const databaseNickname = await connection.raw(`
+      databaseName = databaseName[0][0].name;
+
+      let databaseNickname;
+
+      databaseNickname = await connection.raw(`
       SELECT nickname FROM ToDoListUser WHERE id="${id}"
       `);
-      console.log(databaseNickname[0][0].nickname);
-      const databaseEmail = await connection.raw(`
+      databaseNickname = databaseNickname[0][0].nickname;
+
+      let databaseEmail;
+      databaseEmail = await connection.raw(`
       SELECT email FROM ToDoListUser WHERE id="${id}"
       `);
-      console.log(databaseEmail[0][0].email);
+      databaseEmail = databaseEmail[0][0].email;
 
-      // await connection.raw(`
-      // UPDATE ToDoListUser
-      // SET name="${name}", nickname="${nickname}", email="${email}"
-      // WHERE id="${id}"
-      // `);
-      // console.log("Usuário alterado com sucesso!");
+      if (name && name !== databaseName) {
+        await connection.raw(`
+        UPDATE ToDoListUser
+        SET name="${name}", nickname="${databaseNickname}", email="${databaseEmail}"
+        WHERE id="${id}"
+        `);
+        console.log("Usuário alterado com sucesso!");
+      }
+      if (nickname && nickname !== databaseNickname) {
+        await connection.raw(`
+        UPDATE ToDoListUser
+        SET name="${databaseName}", nickname="${nickname}", email="${databaseEmail}"
+        WHERE id="${id}"
+        `);
+        console.log("Usuário alterado com sucesso!");
+      }
+      if (email && email !== databaseEmail) {
+        await connection.raw(`
+        UPDATE ToDoListUser
+        SET name="${databaseName}", nickname="${databaseNickname}", email="${email}"
+        WHERE id="${id}"
+        `);
+        console.log("Usuário alterado com sucesso!");
+      }
     } catch (error) {
       throw new Error("Falha ao realizar busca no banco");
     }
@@ -150,4 +175,112 @@ async function editUser(
   }
 }
 
-editUser("1597421159304");
+// editUser("1597421159304", "Teste", "tester@gmail.com");
+
+app.put("/user/edit/:id", async (req: Request, res: Response) => {
+  try {
+    await editUser(
+      req.params.id,
+      req.body.name,
+      req.body.nickname,
+      req.body.email
+    );
+    res.status(200).send(`Usuário ${req.body.name} editado com sucesso!`);
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
+
+async function createTask(
+  userCreatorId: string,
+  title: string,
+  limitDate: string,
+  description: string
+): Promise<any> {
+  if (title && limitDate && title && description && userCreatorId) {
+    const id = Date.now();
+
+    function dateFormatter(date: string) {
+      let day = date.split("/")[0];
+      let month = date.split("/")[1];
+      let year = date.split("/")[2];
+
+      return year + "-" + ("0" + month).slice(-2) + "-" + ("0" + day).slice(-2);
+    }
+
+    const databaseDate = dateFormatter(limitDate);
+
+    try {
+      const result = await connection.raw(`
+  INSERT INTO Tasks(id, title, description, limit_date, creator_user_id)
+  VALUES("${id}", "${title}", "${description}", "${databaseDate}", "${userCreatorId}")
+  `);
+      return result[0][0];
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    console.log("Preencha todos os campos");
+  }
+}
+
+app.put("/task", async (req: Request, res: Response) => {
+  try {
+    await createTask(
+      req.body.userCreatorId,
+      req.body.title,
+      req.body.limitDate,
+      req.body.description
+    );
+    res.status(200).send({
+      message: "task created",
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
+
+// createTask(
+//   "1597421159304",
+//   "A segunda tarefa",
+//   "16/08/2020",
+//   "Segunda tarefa."
+// );
+
+async function fetchTaskById(id: string): Promise<any> {
+  try {
+    if (id) {
+      const result = await connection.raw(`
+      SELECT * FROM Tasks WHERE id="${id}"
+      `);
+      if (result[0][0]) {
+        return result[0][0];
+      } else {
+        console.log("Não foi encontrado uma tarefa com esse id");
+      }
+    } else {
+      console.log("confira o id digitado");
+    }
+  } catch (error) {
+    throw new Error("Falha ao realizar busca no banco");
+  }
+}
+
+// fetchTaskById("1597605187043");
+
+app.get("/task/:id", async (req: Request, res: Response) => {
+  try {
+    const result = await fetchTaskById(req.params.id);
+    res.status(200).send({
+      message: result,
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
