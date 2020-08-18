@@ -13,8 +13,6 @@ export class UserDatabase {
     },
   });
 
-
-
   private static TABLE_NAME = "User";
 
   public async createUser(
@@ -30,4 +28,28 @@ export class UserDatabase {
       })
       .into(UserDatabase.TABLE_NAME);
   }
+
+  public async fetchUserInfo(email: string): Promise<any> {
+    if (!email || email.indexOf("@") === -1) {
+      throw new Error("Confira o email");
+    }
+
+    const result = await this.connection
+      .select("*")
+      .from(UserDatabase.TABLE_NAME)
+      .where({ email });
+    console.log(result[0]);
+    return result[0];
+  }
+
+  public async fetchUserById(id: string): Promise<any> {
+    const result = await this.connection
+      .select("*")
+      .from(UserDatabase.TABLE_NAME)
+      .where({ id });
+    console.log(result[0]);
+    return result[0];
+  }
 }
+
+

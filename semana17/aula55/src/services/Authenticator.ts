@@ -1,24 +1,30 @@
 import * as jwt from "jsonwebtoken";
 
+export interface AuthenticationData {
+  id: string;
+}
+
 export class Authenticator {
-  private static EXPIRES_IN = "90min";
 
   static generateToken(input: AuthenticationData): string {
-    
     const token = jwt.sign(
       {
         id: input.id,
       },
       process.env.JWT_KEY as string,
       {
-        expiresIn: Authenticator.EXPIRES_IN,
+        expiresIn: process.env.JWT_EXPIRES_IN,
       }
     );
     console.log("token gerado", token);
     return token;
   }
-}
 
-interface AuthenticationData {
-  id: string;
+  static getTokenData(token: string): any {
+    const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+    const result = {
+      id: payload.id,
+    };
+    return result;
+  }
 }

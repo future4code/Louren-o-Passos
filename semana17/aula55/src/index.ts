@@ -5,6 +5,7 @@ import { IdGenerator } from "./services/IdGenerator";
 import knex from "knex";
 import { UserDatabase } from "./data/UserDatabase";
 import { Authenticator } from "./services/Authenticator";
+import { AuthenticationData } from "./services/Authenticator";
 
 const connection = knex({
   client: "mysql",
@@ -34,6 +35,8 @@ const user = new UserDatabase();
 
 // user.createUser(id,"lo.passos93@gmail.com", "123456")
 
+const userDb = new UserDatabase();
+
 async function signup(req: Request, res: Response): Promise<any> {
   try {
     const { email, password } = req.body;
@@ -54,10 +57,10 @@ async function signup(req: Request, res: Response): Promise<any> {
 
     const token = Authenticator.generateToken({ id });
 
-    const userDb = new UserDatabase();
     await userDb.createUser(id, userData.email, userData.password);
 
     res.status(200).send({
+      message: "Usuário criado com sucesso",
       token,
     });
   } catch (error) {
@@ -69,3 +72,49 @@ async function signup(req: Request, res: Response): Promise<any> {
 }
 
 app.post("/signup", signup);
+
+// userDb.fetchUserInfo("lo.passos93gmail.com");
+
+userDb.fetchUserById("1f59ff58-88fc-4b12-a017-504ed802b9ff");
+
+app.post("/login", async (req: Request, res: Response) => {
+  try {
+    const userData = {
+      email: req.body.email,
+      password: req.body.password,
+    };
+    const user = await userDb.fetchUserInfo(req.body.email);
+
+    if (user.password !== userData.password) {
+      throw new Error("Invalid password");
+    }
+
+    const token = Authenticator.generateToken({ id: user.id });
+    res.status(200).send({
+      token: "token gerado pelo jwt",
+      info: token,
+    });
+  } catch (error) {
+    res.status(400).send({
+      error,
+    });
+  }
+});
+
+app.get("/user/profile", async (req: Request, res: Response) => {
+  try {
+    const token = req.headers.authorization as string;
+    const authData = Authenticator.getTokenData(token);
+
+    const userDb = new UserDatabase();
+    const user = await userDb.fetchUserById(authData.id);
+    res.status(200).send({
+      id: user.id,
+      email: user.email,
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error,
+    });
+  }
+});
